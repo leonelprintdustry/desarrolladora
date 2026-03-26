@@ -3,573 +3,340 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sunset — Desarrolladora Inmobiliaria</title>
-<meta name="description" content="Sunset Desarrollos. Proyectos de alta calidad en La Plata, City Bell y Zona Norte GBA.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<title>Sunset — Arquitectura y desarrollos</title>
+<meta name="description" content="Sunset. Arquitectura y desarrollos con estética minimalista. Casas, edificios y proyectos en distintas etapas.">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'DM Sans',sans-serif;background:#F8F5F0;color:#242220;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%}
-a{text-decoration:none;color:inherit}
 :root{
-  --cream:#F8F5F0;--sand:#EDE8DF;--sand-d:#D4CCBE;
-  --warm:#9C8F7E;--charcoal:#242220;--charcoal2:#3A3733;
-  --gold:#B8894A;--gold-l:#D4AA72;--white:#FFFFFF;--muted:#7A7268;
-  --nav-h:80px
+  --bg:#f5f5f2;
+  --surface:#ffffff;
+  --line:#d9d7d1;
+  --text:#111111;
+  --muted:#6c6b67;
+  --soft:#efeee9;
+  --accent:#8e8475;
+  --dark:#151515;
+  --max:1320px;
 }
-.tag{display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-.tag::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0}
-.display{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1.05;color:var(--charcoal)}
-.display em{font-style:italic;color:var(--gold)}
-.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.fade-up.visible{opacity:1;transform:translateY(0)}
-.fade-up.d1{transition-delay:.1s}.fade-up.d2{transition-delay:.2s}
-.fade-up.d3{transition-delay:.3s}.fade-up.d4{transition-delay:.4s}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:999;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(248,245,240,.93);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
-nav.scrolled{border-color:var(--sand);box-shadow:0 2px 20px rgba(0,0,0,.05)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase}
-.nav-logo span{color:var(--gold)}
-.nav-links{display:flex;list-style:none;gap:2.8rem}
-.nav-links a{font-size:.72rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .2s;position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:100%;height:1px;background:var(--gold);transition:right .3s}
-.nav-links a:hover{color:var(--charcoal)}
-.nav-links a:hover::after{right:0}
-.nav-cta{font-size:.7rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:10px 22px;transition:all .25s}
-.nav-cta:hover{background:var(--gold);color:var(--white)}
-.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.nav-burger span{display:block;width:24px;height:1.5px;background:var(--charcoal);transition:all .3s}
-.mobile-menu{position:fixed;inset:0;z-index:998;background:var(--cream);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;transform:translateX(100%);transition:transform .4s cubic-bezier(.4,0,.2,1)}
-.mobile-menu.open{transform:translateX(0)}
-.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;letter-spacing:.05em;transition:color .2s}
-.mobile-menu a:hover{color:var(--gold)}
-.mm-close{position:absolute;top:2rem;right:5vw;font-size:1.5rem;cursor:pointer;background:none;border:none;color:var(--charcoal)}
-
-/* HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:var(--nav-h)}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:6rem 5vw 5rem}
-.hero-pretag{margin-bottom:1.8rem}
-.hero-title{font-size:clamp(3rem,4.5vw,5.2rem);margin-bottom:1.6rem}
-.hero-sub{font-size:.93rem;font-weight:300;line-height:1.9;color:var(--muted);max-width:420px;margin-bottom:2.8rem}
-.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
-.btn-dark{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:14px 28px;background:var(--charcoal);color:var(--white);transition:background .25s;border:none;cursor:pointer}
-.btn-dark:hover{background:var(--gold)}
-.btn-outline{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:14px 28px;background:transparent;color:var(--charcoal);border:1px solid var(--charcoal);transition:all .25s;cursor:pointer}
-.btn-outline:hover{background:var(--charcoal);color:var(--white)}
-.btn-gold{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:14px 28px;background:var(--gold);color:var(--white);transition:background .25s;border:none;cursor:pointer}
-.btn-gold:hover{background:var(--charcoal)}
-.ghost-arrow{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .2s}
-.ghost-arrow:hover{color:var(--charcoal)}
-.ghost-arrow .circle{width:30px;height:30px;border:1px solid currentColor;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .2s}
-.ghost-arrow:hover .circle{transform:translateX(3px)}
-.hero-stats{display:flex;gap:2.5rem;margin-top:4rem;padding-top:2.5rem;border-top:1px solid var(--sand)}
-.stat-n{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--charcoal);line-height:1;display:block}
-.stat-l{font-size:.68rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px;display:block}
-.hero-right{position:relative;overflow:hidden;background:var(--charcoal)}
-.hero-visual{position:absolute;inset:0;background:linear-gradient(160deg,rgba(36,34,32,.45) 0%,rgba(36,34,32,.1) 100%),url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80') center/cover no-repeat;transition:transform 8s ease}
-.hero-right:hover .hero-visual{transform:scale(1.04)}
-.hero-badge{position:absolute;bottom:2.5rem;left:2.5rem;background:rgba(248,245,240,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);padding:1.2rem 1.5rem;color:var(--white)}
-.hero-badge-label{font-size:.62rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;opacity:.6;margin-bottom:4px}
-.hero-badge-value{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;letter-spacing:.05em}
-.hero-deco{position:absolute;top:2rem;right:2rem;width:calc(100% - 4rem);height:calc(100% - 4rem);border:1px solid rgba(184,137,74,.2);pointer-events:none}
-
-/* INTRO STRIP */
-.intro-strip{background:var(--charcoal);padding:2.5rem 5vw;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-.intro-strip-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:300;font-style:italic;color:rgba(255,255,255,.8)}
-.intro-strip-text strong{font-style:normal;font-weight:400;color:var(--gold-l)}
-.locations{display:flex;gap:2rem;flex-wrap:wrap}
-.loc{font-size:.68rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:6px}
-.loc::before{content:'';width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0}
-
-/* PROJECTS */
-.proj-section{padding:7rem 5vw;background:var(--white)}
-.proj-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;gap:2rem;flex-wrap:wrap}
-.proj-header .display{font-size:clamp(2rem,3vw,3.4rem);margin-top:.8rem}
-.proj-header-right{font-size:.88rem;font-weight:300;line-height:1.85;color:var(--muted);max-width:320px;text-align:right}
-.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:1.2rem}
-.pcard{position:relative;overflow:hidden;cursor:pointer;background:var(--charcoal2)}
-.pcard.feat{grid-row:span 2}
-.pimg{width:100%;min-height:280px;background-size:cover;background-position:center;transition:transform .6s ease}
-.pcard.feat .pimg{min-height:100%}
-.pcard:hover .pimg{transform:scale(1.05)}
-.pi1{background-image:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=75')}
-.pi2{background-image:url('https://images.unsplash.com/photo-1613977257592-4871e5fcd7c4?w=800&q=75')}
-.pi3{background-image:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=75')}
-.pi4{background-image:url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=75')}
-.poverlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,16,.88) 0%,rgba(20,18,16,.1) 60%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.8rem;transition:background .4s}
-.pcard:hover .poverlay{background:linear-gradient(to top,rgba(20,18,16,.94) 0%,rgba(20,18,16,.3) 70%,transparent 100%)}
-.pzone{font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-l);margin-bottom:6px}
-.pname{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--white);line-height:1.15;margin-bottom:4px}
-.pcard.feat .pname{font-size:2rem}
-.pstatus{font-size:.68rem;color:rgba(255,255,255,.4)}
-.parrow{position:absolute;top:1.5rem;right:1.5rem;width:36px;height:36px;border:1px solid rgba(255,255,255,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);opacity:0;transform:scale(.8);transition:opacity .3s,transform .3s}
-.pcard:hover .parrow{opacity:1;transform:scale(1)}
-.proj-footer{margin-top:3rem;text-align:center}
-
-/* VALUE STRIP */
-.value-strip{background:var(--sand);padding:5rem 5vw;display:flex;flex-direction:column;align-items:center;text-align:center;gap:2rem}
-.vquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:300;font-style:italic;color:var(--charcoal);max-width:760px;line-height:1.3}
-.vquote strong{font-style:normal;font-weight:400;color:var(--gold);display:block}
-.vsub{font-size:.88rem;font-weight:300;color:var(--muted)}
-
-/* ABOUT */
-.about-section{padding:7rem 5vw;background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
-.about-visual{position:relative}
-.aimg-main{width:100%;aspect-ratio:4/5;background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80');background-size:cover;background-position:center}
-.aimg-accent{position:absolute;bottom:-2rem;right:-2rem;width:55%;aspect-ratio:1;background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=75');background-size:cover;background-position:center;border:5px solid var(--cream)}
-.adeco{position:absolute;top:-1.5rem;left:-1.5rem;width:60%;height:60%;border:1px solid var(--gold);pointer-events:none;z-index:-1}
-.about-content .display{font-size:clamp(2rem,3vw,3.4rem);margin-top:.8rem;margin-bottom:1.5rem}
-.about-lead{font-size:1.05rem;font-weight:300;line-height:1.85;color:var(--charcoal);margin-bottom:1rem}
-.about-text{font-size:.88rem;font-weight:300;line-height:1.95;color:var(--muted);margin-bottom:2.5rem}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 2rem;margin-bottom:2.5rem}
-.pillar-icon{width:32px;height:32px;border:1px solid var(--sand-d);display:flex;align-items:center;justify-content:center;margin-bottom:10px}
-.pillar-icon svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:1.5}
-.pillar-title{font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--charcoal);margin-bottom:5px}
-.pillar-desc{font-size:.8rem;font-weight:300;line-height:1.6;color:var(--muted)}
-
-/* PROCESS */
-.process-section{background:var(--charcoal);padding:7rem 5vw}
-.process-section .tag{color:var(--gold)}
-.process-section .tag::before{background:var(--gold)}
-.process-section .display{color:var(--white);font-size:clamp(2rem,3vw,3.4rem);margin-top:.8rem;margin-bottom:4rem;max-width:500px}
-.process-section .display em{color:var(--gold-l)}
-.steps{display:grid;grid-template-columns:repeat(5,1fr);position:relative}
-.steps::before{content:'';position:absolute;top:20px;left:calc(10% + 20px);right:calc(10% + 20px);height:1px;background:linear-gradient(to right,transparent,rgba(184,137,74,.4),transparent)}
-.step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 1rem;position:relative;z-index:1}
-.step-dot{width:40px;height:40px;border:1px solid rgba(184,137,74,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;color:var(--gold-l);background:var(--charcoal);margin-bottom:1.5rem;transition:border-color .3s,background .3s}
-.step:hover .step-dot{border-color:var(--gold);background:rgba(184,137,74,.12)}
-.step-title{font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:8px}
-.step-desc{font-size:.78rem;font-weight:300;line-height:1.65;color:rgba(255,255,255,.38)}
-
-/* CONTACT */
-.contact-section{padding:7rem 5vw;background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-.contact-section .display{font-size:clamp(2rem,3vw,3.4rem);margin-top:.8rem;margin-bottom:1.2rem}
-.contact-desc{font-size:.9rem;font-weight:300;line-height:1.9;color:var(--muted);margin-bottom:3rem}
-.cdetails{display:flex;flex-direction:column;gap:1.4rem}
-.citem{display:flex;flex-direction:column;gap:3px}
-.ckey{font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
-.cval{font-size:.9rem;font-weight:300;color:var(--charcoal);transition:color .2s}
-.cval:hover{color:var(--gold)}
-.form-card{background:var(--white);border:1px solid var(--sand);padding:2.8rem}
-.form-card-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--charcoal);margin-bottom:.5rem}
-.form-card-sub{font-size:.8rem;font-weight:300;color:var(--muted);margin-bottom:2rem}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-.form-group{margin-bottom:1rem}
-.form-label{display:block;font-size:.65rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.form-control{width:100%;background:var(--cream);border:1px solid var(--sand);padding:11px 14px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:300;color:var(--charcoal);outline:none;transition:border-color .2s;-webkit-appearance:none;border-radius:0}
-.form-control:focus{border-color:var(--gold)}
-.form-control::placeholder{color:var(--muted);opacity:.55}
-textarea.form-control{resize:vertical;min-height:88px}
-.form-submit{width:100%;padding:15px;background:var(--charcoal);color:var(--white);border:none;font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;margin-top:.5rem;transition:background .25s}
-.form-submit:hover{background:var(--gold)}
-.form-privacy{font-size:.7rem;font-weight:300;color:var(--muted);text-align:center;margin-top:1rem;line-height:1.5}
-
-/* FOOTER */
-footer{background:var(--charcoal);padding:4rem 5vw 2.5rem}
-.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08);flex-wrap:wrap}
-.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--white);margin-bottom:.8rem}
-.footer-logo span{color:var(--gold)}
-.footer-tagline{font-size:.78rem;font-weight:300;color:rgba(255,255,255,.3)}
-.fnav{display:flex;gap:4rem;flex-wrap:wrap}
-.fnav-title{font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
-.fnav-list{list-style:none;display:flex;flex-direction:column;gap:.7rem}
-.fnav-list a{font-size:.82rem;font-weight:300;color:rgba(255,255,255,.45);transition:color .2s}
-.fnav-list a:hover{color:var(--white)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;flex-wrap:wrap;gap:1rem}
-.footer-copy{font-size:.72rem;font-weight:300;color:rgba(255,255,255,.25)}
-.footer-social{display:flex;gap:1.2rem}
-.footer-social a{font-size:.68rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);transition:color .2s}
-.footer-social a:hover{color:var(--gold)}
-
-/* FAB */
-.fab-wa{position:fixed;bottom:2rem;right:2rem;z-index:900;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .25s,box-shadow .25s;animation:pulse 3s ease-in-out infinite}
-.fab-wa:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.55);animation:none}
-.fab-wa svg{width:26px;height:26px;fill:white}
-.fab-tip{position:absolute;right:68px;background:var(--charcoal);color:var(--white);font-size:.72rem;font-weight:400;white-space:nowrap;padding:8px 14px;pointer-events:none;opacity:0;transform:translateX(8px);transition:opacity .2s,transform .2s}
-.fab-wa:hover .fab-tip{opacity:1;transform:translateX(0)}
-@keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 30px rgba(37,211,102,.65)}}
-
-/* RESPONSIVE */
-@media(max-width:1024px){
-  .aimg-accent{display:none}
-  .steps{grid-template-columns:repeat(3,1fr);gap:2rem}
-  .steps::before{display:none}
+*{margin:0;padding:0;box-sizing:border-box;border-radius:0 !important}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.container{width:min(var(--max),92vw);margin:0 auto}
+.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.display{font-family:"SF Pro Display",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;font-size:clamp(2.8rem,6vw,6.5rem);font-weight:500;line-height:.96;letter-spacing:-.04em}
+.h2{font-size:clamp(2rem,4vw,3.8rem);font-weight:500;line-height:1.02;letter-spacing:-.04em}
+.lead{font-size:1.05rem;line-height:1.8;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 24px;border:1px solid var(--text);font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;transition:.25s;background:transparent}
+.btn:hover{background:var(--text);color:#fff}
+.btn-dark{background:var(--text);color:#fff}
+.btn-dark:hover{background:#000}
+.nav{position:sticky;top:0;z-index:50;background:rgba(245,245,242,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,0,0,.06)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:78px;gap:20px}
+.logo{font-size:.95rem;letter-spacing:.34em;text-transform:uppercase;font-weight:600}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;flex-wrap:wrap}
+.nav-links a{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+.hero{padding:72px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:end}
+.hero-copy{padding:36px 0 0}
+.hero-copy .lead{max-width:620px;margin-top:26px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.hero-media{min-height:72vh;background:var(--soft);border:1px solid var(--line);position:relative;overflow:hidden}
+.hero-media img{width:100%;height:100%;object-fit:cover;filter:contrast(1.02) saturate(.92)}
+.hero-panel{position:absolute;left:0;bottom:0;background:rgba(255,255,255,.9);border-top:1px solid var(--line);border-right:1px solid var(--line);padding:22px 24px;min-width:300px}
+.hero-panel .meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 26px;margin-top:14px}
+.hero-panel small{display:block;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.section{padding:84px 0;border-top:1px solid var(--line)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--surface);border:1px solid var(--line)}
+.card-pad{padding:26px}
+.metric{padding:24px;border-top:1px solid var(--line)}
+.metric strong{display:block;font-size:2rem;font-weight:500;letter-spacing:-.05em}
+.metric span{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:34px}
+.project-card{background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column}
+.project-card .thumb{aspect-ratio:4/3;overflow:hidden;background:var(--soft)}
+.project-card img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.project-card:hover img{transform:scale(1.03)}
+.project-card .body{padding:22px;border-top:1px solid var(--line)}
+.project-card h3{font-size:1.45rem;font-weight:500;letter-spacing:-.03em}
+.project-card p{color:var(--muted);line-height:1.7;margin:10px 0 18px}
+.kicker{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
+.spec{background:var(--surface);padding:20px}
+.spec small{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.spec div{font-size:1.02rem;line-height:1.5}
+.gallery{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:28px}
+.gallery img{width:100%;height:100%;object-fit:cover;border:1px solid var(--line);background:var(--soft);min-height:280px}
+.text-block{padding:28px;background:var(--surface);border:1px solid var(--line)}
+.list{display:grid;gap:14px;margin-top:18px}
+.list li{list-style:none;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);line-height:1.7}
+.footer{padding:40px 0 88px;border-top:1px solid var(--line)}
+.footer-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+.footer-note{color:var(--muted);font-size:.88rem}
+.fab{position:fixed;right:24px;bottom:24px;width:58px;height:58px;background:#25D366;border:1px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(0,0,0,.12);z-index:60}
+.fab svg{width:28px;height:28px;fill:#fff}
+.muted{color:var(--muted)}
+.mono{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:980px){
+ .hero-grid,.grid-2,.gallery,.project-grid{grid-template-columns:1fr}
+ .grid-3{grid-template-columns:1fr 1fr}
+ .hero-media{min-height:50vh}
 }
-@media(max-width:768px){
-  :root{--nav-h:68px}
-  .nav-links,.nav-cta{display:none}
-  .nav-burger{display:flex}
-  .hero{grid-template-columns:1fr}
-  .hero-right{display:none}
-  .hero-left{padding:4rem 5vw 5rem}
-  .hero-title{font-size:2.8rem}
-  .intro-strip{flex-direction:column;gap:1rem}
-  .proj-section{padding:5rem 5vw}
-  .proj-header{flex-direction:column;align-items:flex-start}
-  .proj-header-right{text-align:left}
-  .proj-grid{grid-template-columns:1fr}
-  .pcard.feat{grid-row:span 1}
-  .about-section{grid-template-columns:1fr;gap:3rem;padding:5rem 5vw}
-  .adeco{display:none}
-  .steps{grid-template-columns:repeat(2,1fr);gap:2rem}
-  .contact-section{grid-template-columns:1fr;gap:3rem;padding:5rem 5vw}
-  .form-row{grid-template-columns:1fr}
-  .footer-top{flex-direction:column}
-  .pillars{grid-template-columns:1fr}
-}
-@media(max-width:480px){
-  .hero-title{font-size:2.2rem}
-  .steps{grid-template-columns:1fr}
+@media (max-width:640px){
+ .nav-links{display:none}
+ .grid-3{grid-template-columns:1fr}
+ .hero{padding-top:36px}
+ .hero-panel{position:static;min-width:0;border-right:none}
 }
 </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav id="nav">
-  <a href="#" class="nav-logo">Sun<span>set</span></a>
-  <ul class="nav-links">
-    <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#proceso">Cómo trabajamos</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-  <a href="#contacto" class="nav-cta">Consultar</a>
-  <div class="nav-burger" onclick="toggleMenu()" aria-label="Menú">
-    <span></span><span></span><span></span>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="index.html">Sun<span>set</span></a>
+    <nav class="nav-links">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#estudio">Estudio</a>
+      <a href="#criterio">Criterio</a>
+      <a href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20recibir%20informaci%C3%B3n%20sobre%20sus%20proyectos" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
   </div>
-</nav>
+</header>
 
-<div class="mobile-menu" id="mm">
-  <button class="mm-close" onclick="toggleMenu()">✕</button>
-  <a href="#proyectos" onclick="toggleMenu()">Proyectos</a>
-  <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
-  <a href="#proceso" onclick="toggleMenu()">Proceso</a>
-  <a href="#contacto" onclick="toggleMenu()">Contacto</a>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="tag hero-pretag fade-up">Desarrolladora Inmobiliaria</div>
-    <h1 class="display hero-title fade-up d1">Invertí en<br>lo que <em>dura.</em></h1>
-    <p class="hero-sub fade-up d2">
-      Diseñamos, construimos y entregamos proyectos residenciales de alta calidad en La Plata, City Bell y Zona Norte GBA. Cada detalle pensado para que tu inversión crezca.
-    </p>
-    <div class="hero-actions fade-up d3">
-      <a href="#proyectos" class="btn-dark">Ver proyectos</a>
-      <a href="#contacto" class="ghost-arrow">
-        <span class="circle">→</span>
-        Hablar con un asesor
-      </a>
-    </div>
-    <div class="hero-stats fade-up d4">
-      <div class="stat">
-        <span class="stat-n">12+</span>
-        <span class="stat-l">Proyectos<br>entregados</span>
+<main>
+  <section class="hero container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Apple feel · arquitectura minimalista</div>
+        <h1 class="display">Espacios que se explican<br>por su propia calma.</h1>
+        <p class="lead">Sunset presenta una colección de proyectos con un lenguaje limpio, materiales honestos y foco en valor real. Casas terminadas, edificios en construcción y desarrollos para invertir con una imagen contemporánea y atemporal.</p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="#proyectos">Ver proyectos</a>
+          <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20recibir%20informaci%C3%B3n%20sobre%20sus%20proyectos" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+        </div>
       </div>
-      <div class="stat">
-        <span class="stat-n">200+</span>
-        <span class="stat-l">Unidades<br>vendidas</span>
-      </div>
-      <div class="stat">
-        <span class="stat-n">15</span>
-        <span class="stat-l">Años de<br>experiencia</span>
+      <div class="hero-media">
+        <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1600&q=80" alt="Arquitectura minimalista">
+        <div class="hero-panel">
+          <div class="eyebrow">Selección actual</div>
+          <div class="meta">
+            <div><small>Tipologías</small><div>Casas · edificios · conjuntos</div></div>
+            <div><small>Etapas</small><div>En pozo · obra · entregado</div></div>
+            <div><small>Zonas</small><div>La Plata · City Bell · Zona Norte</div></div>
+            <div><small>Contacto</small><div>Solo por WhatsApp</div></div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-visual"></div>
-    <div class="hero-deco"></div>
-    <div class="hero-badge">
-      <div class="hero-badge-label">Proyecto destacado</div>
-      <div class="hero-badge-value">Sunset City Bell · En pozo</div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-3">
+      <div class="card"><div class="metric"><strong>10</strong><span>Páginas de proyecto</span></div></div>
+      <div class="card"><div class="metric"><strong>3</strong><span>Estados de avance</span></div></div>
+      <div class="card"><div class="metric"><strong>1</strong><span>Sistema visual coherente</span></div></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- INTRO STRIP -->
-<div class="intro-strip">
-  <p class="intro-strip-text">Hacemos real estate como <strong>un estilo de vida:</strong> con criterio, calidad y visión a largo plazo.</p>
-  <div class="locations">
-    <span class="loc">La Plata</span>
-    <span class="loc">City Bell</span>
-    <span class="loc">Zona Norte GBA</span>
-  </div>
-</div>
+  <section class="section" id="proyectos">
+    <div class="container">
+      <div class="grid-2" style="align-items:end;gap:36px">
+        <div>
+          <div class="eyebrow">Proyectos</div>
+          <h2 class="h2" style="margin-top:14px">Una estructura simple para mostrar todo tu portfolio.</h2>
+        </div>
+        <p class="lead">Cada proyecto tiene su propia página para que después edites en Visual Studio Code la ubicación, memoria descriptiva, m², precios, imágenes, avance de obra, renders o brochure.</p>
+      </div>
+      <div class="project-grid">
+        
+      <article class="project-card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=80" alt="Casa Lagoon"></div>
+        <div class="body">
+          <div class="kicker">Casa terminada · City Bell</div>
+          <h3>Casa Lagoon</h3>
+          <p>Residencia contemporánea pensada para vida familiar, con líneas puras, expansión al jardín y materiales nobles.</p>
+          <div class="mono">Entregado · 2025</div>
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn" href="casa-lagoon.html">Ver proyecto</a>
+            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Casa%20Lagoon">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1600&q=80" alt="Casa Patio"></div>
+        <div class="body">
+          <div class="kicker">Casa terminada · La Plata</div>
+          <h3>Casa Patio</h3>
+          <p>Una casa donde el patio organiza la luz, la ventilación y la relación entre lo privado y lo social.</p>
+          <div class="mono">Entregado · 2024</div>
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn" href="casa-patio.html">Ver proyecto</a>
+            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Casa%20Patio">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&q=80" alt="Edificio Parque"></div>
+        <div class="body">
+          <div class="kicker">Edificio · City Bell</div>
+          <h3>Edificio Parque</h3>
+          <p>Proyecto residencial con fuerte presencia urbana, amenities sobrios y una búsqueda clara de permanencia.</p>
+          <div class="mono">En pozo · Entrega 2027</div>
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn" href="edificio-parque.html">Ver proyecto</a>
+            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Edificio%20Parque">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80" alt="Edificio Centro"></div>
+        <div class="body">
+          <div class="kicker">Edificio · La Plata</div>
+          <h3>Edificio Centro</h3>
+          <p>Diseñado para un mercado urbano activo, combina ubicación estratégica, flexibilidad y diseño simple.</p>
+          <div class="mono">En construcción · Entrega 2026</div>
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn" href="edificio-centro.html">Ver proyecto</a>
+            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Edificio%20Centro">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1600&q=80" alt="Torre Norte"></div>
+        <div class="body">
+          <div class="kicker">Edificio · Zona Norte GBA</div>
+          <h3>Torre Norte</h3>
+          <p>Una torre limpia y elegante, con foco en proporción, fachada sobria y valor patrimonial de largo plazo.</p>
+          <div class="mono">Entregado · 2023</div>
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn" href="torre-norte.html">Ver proyecto</a>
+            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Torre%20Norte">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1600&q=80" alt="Casa Bosque"></div>
+        <div class="body">
+          <div class="kicker">Casa en construcción · Gonnet</div>
+          <h3>Casa Bosque</h3>
+          <p>Arquitectura abierta al paisaje, con grandes planos vidriados y una relación directa con el verde.</p>
+          <div class="mono">En construcción · Entrega 2026</div>
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn" href="casa-bosque.html">Ver proyecto</a>
+            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Casa%20Bosque">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1600&q=80" alt="Casa Terraza"></div>
+        <div class="body">
+          <div class="kicker">Casa terminada · Villa Elisa</div>
+          <h3>Casa Terraza</h3>
+          <p>Una vivienda compacta y luminosa, pensada para maximizar espacio, privacidad y disfrute exterior.</p>
+          <div class="mono">Entregado · 2022</div>
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn" href="casa-terraza.html">Ver proyecto</a>
+            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Casa%20Terraza">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=1600&q=80" alt="Residencias Oeste"></div>
+        <div class="body">
+          <div class="kicker">Conjunto residencial · La Plata</div>
+          <h3>Residencias Oeste</h3>
+          <p>Conjunto de unidades con lenguaje contemporáneo, patios privados y circulación clara.</p>
+          <div class="mono">En pozo · Lanzamiento 2026</div>
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn" href="residencias-oeste.html">Ver proyecto</a>
+            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Residencias%20Oeste">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=1600&q=80" alt="Estudios Urban"></div>
+        <div class="body">
+          <div class="kicker">Edificio · La Plata Centro</div>
+          <h3>Estudios Urban</h3>
+          <p>Producto pensado para renta, con mantenimiento simple, diseño sobrio y buena escala de inversión.</p>
+          <div class="mono">En construcción · Entrega 2026</div>
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn" href="estudios-urban.html">Ver proyecto</a>
+            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Estudios%20Urban">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80" alt="Houses Sunset"></div>
+        <div class="body">
+          <div class="kicker">Casas + lotes · Zona Norte</div>
+          <h3>Houses Sunset</h3>
+          <p>Un desarrollo de escala más abierta, orientado a calidad de vida, verde y construcción contemporánea.</p>
+          <div class="mono">Próximo lanzamiento · 2026</div>
+          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn" href="houses-sunset.html">Ver proyecto</a>
+            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Houses%20Sunset">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+      </div>
+    </div>
+  </section>
 
-<!-- PROYECTOS -->
-<section class="proj-section" id="proyectos">
-  <div class="proj-header">
+  <section class="section" id="estudio">
+    <div class="container grid-2">
+      <div class="text-block">
+        <div class="eyebrow">Estudio</div>
+        <h2 class="h2" style="margin:14px 0 18px">Menos ruido. Más criterio.</h2>
+        <p class="lead">El diseño se apoya en grilla, aire, contraste suave y bordes rectos. La idea es que la marca se vea más cerca de una desarrolladora seria y menos de una landing genérica.</p>
+      </div>
+      <div class="text-block">
+        <div class="eyebrow">Qué podés editar</div>
+        <ul class="list">
+          <li>Título, ubicación y estado de cada desarrollo.</li>
+          <li>Imágenes reales, renders, obra y terminaciones.</li>
+          <li>Texto comercial, pricing, planes de pago y brochure.</li>
+          <li>Botón de WhatsApp con mensaje específico por proyecto.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="criterio">
+    <div class="container grid-2">
+      <div>
+        <div class="eyebrow">Lenguaje visual</div>
+        <h2 class="h2" style="margin-top:14px">Recto, claro y atemporal.</h2>
+      </div>
+      <div class="specs">
+        <div class="spec"><small>Color</small><div>Neutros suaves, contraste elegante y acentos tierra.</div></div>
+        <div class="spec"><small>Forma</small><div>Bordes rectos, líneas finas, bloques limpios.</div></div>
+        <div class="spec"><small>Estructura</small><div>Mucho aire, títulos grandes, lectura rápida.</div></div>
+        <div class="spec"><small>Conversión</small><div>Sin formulario. Contacto directo por WhatsApp.</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
     <div>
-      <div class="tag fade-up">Nuestros desarrollos</div>
-      <h2 class="display fade-up d1">Proyectos que<br><em>definen</em> el barrio.</h2>
+      <div class="logo">Sun<span>set</span></div>
+      <div class="footer-note">Arquitectura, casas, edificios y proyectos en desarrollo.</div>
     </div>
-    <p class="proj-header-right fade-up d2">Cada edificio es un proyecto de vida. Elegimos las mejores ubicaciones y trabajamos con arquitectos de primer nivel para construir espacios que valorizan año a año.</p>
-  </div>
-  <div class="proj-grid">
-    <div class="pcard feat fade-up">
-      <div class="pimg pi1" style="height:100%;min-height:550px;"></div>
-      <div class="parrow">↗</div>
-      <div class="poverlay">
-        <div class="pzone">City Bell · En pozo</div>
-        <div class="pname">Sunset<br>Parque</div>
-        <div class="pstatus">Entrega 2026 · 1, 2 y 3 ambientes</div>
-      </div>
-    </div>
-    <div class="pcard fade-up d1">
-      <div class="pimg pi2"></div>
-      <div class="parrow">↗</div>
-      <div class="poverlay">
-        <div class="pzone">La Plata · En construcción</div>
-        <div class="pname">Sunset Centro</div>
-        <div class="pstatus">Entrega 2025 · Monoambientes y 2 amb.</div>
-      </div>
-    </div>
-    <div class="pcard fade-up d2">
-      <div class="pimg pi3"></div>
-      <div class="parrow">↗</div>
-      <div class="poverlay">
-        <div class="pzone">Zona Norte · Entregado</div>
-        <div class="pname">Sunset Norte I</div>
-        <div class="pstatus">Entregado 2023 · Totalmente vendido</div>
-      </div>
-    </div>
-    <div class="pcard fade-up d3">
-      <div class="pimg pi4"></div>
-      <div class="parrow">↗</div>
-      <div class="poverlay">
-        <div class="pzone">La Plata · Entregado</div>
-        <div class="pname">Sunset Norte II</div>
-        <div class="pstatus">Entregado 2022 · Totalmente vendido</div>
-      </div>
-    </div>
-  </div>
-  <div class="proj-footer fade-up">
-    <a href="#contacto" class="btn-outline">Consultar disponibilidad →</a>
-  </div>
-</section>
-
-<!-- VALUE STRIP -->
-<div class="value-strip">
-  <p class="vquote fade-up">El mejor momento para invertir en real estate fue ayer.
-    <strong>El segundo mejor momento es hoy.</strong>
-  </p>
-  <p class="vsub fade-up d1">Hablá con nuestro equipo y encontrá tu unidad ideal.</p>
-  <a href="#contacto" class="btn-gold fade-up d2">Quiero saber más</a>
-</div>
-
-<!-- NOSOTROS -->
-<section class="about-section" id="nosotros">
-  <div class="about-visual fade-up">
-    <div class="aimg-main"></div>
-    <div class="aimg-accent"></div>
-    <div class="adeco"></div>
-  </div>
-  <div class="about-content">
-    <div class="tag fade-up">Quiénes somos</div>
-    <h2 class="display fade-up d1">Construimos con<br>criterio y <em>pasión.</em></h2>
-    <p class="about-lead fade-up d2">Somos Sunset, una desarrolladora inmobiliaria fundada con la convicción de que construir bien es construir para siempre.</p>
-    <p class="about-text fade-up d3">Nos involucramos en cada etapa: desde la elección del terreno hasta la entrega de llaves. Trabajamos en zonas con alto potencial de revalorización, siempre priorizando calidad constructiva, diseño inteligente y transparencia total con nuestros clientes e inversores.</p>
-    <div class="pillars fade-up d3">
-      <div>
-        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-        <div class="pillar-title">Calidad real</div>
-        <div class="pillar-desc">Materiales de primera y terminaciones que duran décadas.</div>
-      </div>
-      <div>
-        <div class="pillar-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <div class="pillar-title">Entrega en tiempo</div>
-        <div class="pillar-desc">Cumplimos con los plazos comprometidos, siempre.</div>
-      </div>
-      <div>
-        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="pillar-title">Transparencia total</div>
-        <div class="pillar-desc">Información clara en cada etapa del proceso.</div>
-      </div>
-      <div>
-        <div class="pillar-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <div class="pillar-title">Inversión segura</div>
-        <div class="pillar-desc">Proyectos con alto potencial de valorización.</div>
-      </div>
-    </div>
-    <a href="#contacto" class="btn-dark fade-up d4">Conocer más →</a>
-  </div>
-</section>
-
-<!-- PROCESO -->
-<section class="process-section" id="proceso">
-  <div class="tag">Cómo trabajamos</div>
-  <h2 class="display">Un proceso <em>claro</em><br>de principio a fin.</h2>
-  <div class="steps">
-    <div class="step fade-up">
-      <div class="step-dot">01</div>
-      <div class="step-title">Ubicación</div>
-      <div class="step-desc">Identificamos terrenos con alto potencial en zonas de crecimiento.</div>
-    </div>
-    <div class="step fade-up d1">
-      <div class="step-dot">02</div>
-      <div class="step-title">Diseño</div>
-      <div class="step-desc">Arquitectos de referencia diseñan cada proyecto al detalle.</div>
-    </div>
-    <div class="step fade-up d2">
-      <div class="step-dot">03</div>
-      <div class="step-title">Financiación</div>
-      <div class="step-desc">Planes flexibles en pesos o dólares, adaptados a cada inversor.</div>
-    </div>
-    <div class="step fade-up d3">
-      <div class="step-dot">04</div>
-      <div class="step-title">Construcción</div>
-      <div class="step-desc">Seguimiento permanente con reportes mensuales de avance.</div>
-    </div>
-    <div class="step fade-up d4">
-      <div class="step-dot">05</div>
-      <div class="step-title">Entrega</div>
-      <div class="step-desc">Llave en mano. Unidades listas para habitar o alquilar.</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACTO -->
-<section class="contact-section" id="contacto">
-  <div>
-    <div class="tag fade-up">Hablemos</div>
-    <h2 class="display fade-up d1">Tu próxima<br>inversión empieza <em>acá.</em></h2>
-    <p class="contact-desc fade-up d2">Completá el formulario o escribinos por WhatsApp. Un asesor te contacta en menos de 24 horas con toda la información que necesitás.</p>
-    <div class="cdetails fade-up d3">
-      <div class="citem">
-        <span class="ckey">WhatsApp</span>
-        <a href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20conocer%20los%20proyectos%20de%20Sunset" class="cval">+54 11 5824-6897</a>
-      </div>
-      <div class="citem">
-        <span class="ckey">Email</span>
-        <a href="mailto:info@sunsetdesarrollos.com.ar" class="cval">info@sunsetdesarrollos.com.ar</a>
-      </div>
-      <div class="citem">
-        <span class="ckey">Zona de operación</span>
-        <span class="cval">La Plata · City Bell · Zona Norte GBA</span>
-      </div>
-    </div>
-  </div>
-  <div class="fade-up d2">
-    <div class="form-card">
-      <div class="form-card-title">Quiero recibir información</div>
-      <div class="form-card-sub">Sin compromiso. Te respondemos rápido.</div>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Nombre</label>
-          <input type="text" class="form-control" placeholder="Tu nombre">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Apellido</label>
-          <input type="text" class="form-control" placeholder="Tu apellido">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Teléfono</label>
-          <input type="tel" class="form-control" placeholder="+54 11 ...">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-control" placeholder="tu@email.com">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">¿Qué te interesa?</label>
-        <select class="form-control">
-          <option value="" disabled selected>Seleccioná una opción</option>
-          <option>Comprar para vivir</option>
-          <option>Invertir en pozo</option>
-          <option>Conocer proyectos disponibles</option>
-          <option>Otro</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Mensaje (opcional)</label>
-        <textarea class="form-control" placeholder="Contanos qué buscás..."></textarea>
-      </div>
-      <button class="form-submit" id="submitBtn" onclick="handleSubmit(this)">Enviar consulta →</button>
-      <p class="form-privacy">Tu información es confidencial y no será compartida.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div>
-      <div class="footer-logo">Sun<span>set</span></div>
-      <div class="footer-tagline">Desarrolladora Inmobiliaria · Desde 2010</div>
-    </div>
-    <div class="fnav">
-      <div>
-        <div class="fnav-title">Navegación</div>
-        <ul class="fnav-list">
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#proceso">Cómo trabajamos</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="fnav-title">Proyectos</div>
-        <ul class="fnav-list">
-          <li><a href="#proyectos">Sunset Parque</a></li>
-          <li><a href="#proyectos">Sunset Centro</a></li>
-          <li><a href="#proyectos">Sunset Norte I</a></li>
-          <li><a href="#proyectos">Sunset Norte II</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="fnav-title">Contacto</div>
-        <ul class="fnav-list">
-          <li><a href="https://wa.me/5491158246897">WhatsApp</a></li>
-          <li><a href="mailto:info@sunsetdesarrollos.com.ar">Email</a></li>
-          <li><a href="#contacto">Formulario</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2025 Sunset Desarrollos. Todos los derechos reservados.</span>
-    <div class="footer-social">
-      <a href="#">Instagram</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">Facebook</a>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn" href="#proyectos">Ver portfolio</a>
+      <a class="btn btn-dark" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20recibir%20informaci%C3%B3n%20sobre%20sus%20proyectos" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
 </footer>
 
-<!-- FAB WHATSAPP -->
-<a class="fab-wa" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20conocer%20los%20proyectos%20de%20Sunset" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <span class="fab-tip">¿Hablamos?</span>
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<a class="fab" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20recibir%20informaci%C3%B3n%20sobre%20sus%20proyectos" target="_blank" rel="noopener" aria-label="WhatsApp">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
-
-<script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
-
-function toggleMenu() {
-  const mm = document.getElementById('mm');
-  mm.classList.toggle('open');
-  document.body.style.overflow = mm.classList.contains('open') ? 'hidden' : '';
-}
-
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-}, { threshold: 0.12 });
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-
-function handleSubmit(btn) {
-  btn.textContent = '✓ Mensaje enviado';
-  btn.style.background = '#4a9e6b';
-  btn.disabled = true;
-}
-</script>
 </body>
 </html>
