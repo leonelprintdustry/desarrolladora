@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunset San Martín — Sunset</title>
+<meta name="description" content="Sunset San Martín. Un edificio donde la luz y la ventilación organizan espacios equilibrados entre lo privado y lo social. Diseño pensado para vivir con claridad, amplitud y conexión con el entorno.">
+<style>
+:root{
+  --bg:#f5f5f2;
+  --surface:#ffffff;
+  --line:#d9d7d1;
+  --text:#111111;
+  --muted:#6c6b67;
+  --soft:#efeee9;
+  --accent:#8e8475;
+  --dark:#151515;
+  --max:1320px;
+}
+*{margin:0;padding:0;box-sizing:border-box;border-radius:0 !important}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.container{width:min(var(--max),92vw);margin:0 auto}
+.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.display{font-family:"SF Pro Display",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;font-size:clamp(2.8rem,6vw,6.5rem);font-weight:500;line-height:.96;letter-spacing:-.04em}
+.h2{font-size:clamp(2rem,4vw,3.8rem);font-weight:500;line-height:1.02;letter-spacing:-.04em}
+.lead{font-size:1.05rem;line-height:1.8;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 24px;border:1px solid var(--text);font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;transition:.25s;background:transparent}
+.btn:hover{background:var(--text);color:#fff}
+.btn-dark{background:var(--text);color:#fff}
+.btn-dark:hover{background:#000}
+.btn-outline{border:1px solid var(--text);color:var(--text);background:transparent}
+.nav{position:sticky;top:0;z-index:50;background:rgba(245,245,242,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,0,0,.06)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:78px;gap:20px}
+.logo{font-size:.95rem;letter-spacing:.34em;text-transform:uppercase;font-weight:600}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;flex-wrap:wrap}
+.nav-links a{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+.hero{padding:72px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:end}
+.hero-copy{padding:36px 0 0}
+.hero-copy .lead{max-width:620px;margin-top:26px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.hero-media{min-height:72vh;background:var(--soft);border:1px solid var(--line);position:relative;overflow:hidden}
+.hero-media img{width:100%;height:100%;object-fit:cover;filter:contrast(1.02) saturate(.92)}
+.hero-panel{position:absolute;left:0;bottom:0;background:rgba(255,255,255,.9);border-top:1px solid var(--line);border-right:1px solid var(--line);padding:22px 24px;min-width:300px}
+.hero-panel .meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 26px;margin-top:14px}
+.hero-panel small{display:block;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.section{padding:84px 0;border-top:1px solid var(--line)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
+.spec{background:var(--surface);padding:20px}
+.spec small{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.spec div{font-size:1.02rem;line-height:1.5}
+
+.gallery{
+  display:grid;
+  grid-template-columns:1.35fr .85fr;
+  gap:18px;
+  margin-top:28px;
+  align-items:stretch;
+}
+.gallery-main{
+  min-height:640px;
+}
+.gallery-main img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border:1px solid var(--line);
+  background:var(--soft);
+}
+.gallery-side{
+  display:grid;
+  grid-template-rows:repeat(3, 1fr);
+  gap:18px;
+}
+.gallery-side img{
+  width:100%;
+  height:100%;
+  min-height:200px;
+  object-fit:cover;
+  border:1px solid var(--line);
+  background:var(--soft);
+}
+
+.text-block{padding:28px;background:var(--surface);border:1px solid var(--line)}
+.footer{padding:40px 0 88px;border-top:1px solid var(--line)}
+.footer-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+.footer-note{color:var(--muted);font-size:.88rem}
+.fab{position:fixed;right:24px;bottom:24px;width:58px;height:58px;background:#25D366;border:1px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(0,0,0,.12);z-index:60}
+.fab svg{width:28px;height:28px;fill:#fff}
+
+.project-cta{
+  padding:84px 0;
+  border-top:1px solid var(--line);
+}
+.project-cta-card{
+  max-width:980px;
+  margin:0 auto;
+  padding:42px;
+  background:var(--surface);
+  border:1px solid var(--line);
+}
+.project-cta-card h2{
+  margin:14px 0 18px;
+  font-size:clamp(2rem,4vw,3.8rem);
+  font-weight:500;
+  line-height:1.02;
+  letter-spacing:-.04em;
+}
+.project-cta-card p{
+  max-width:760px;
+  font-size:1.05rem;
+  line-height:1.8;
+  color:var(--muted);
+}
+.project-cta-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+
+@media (max-width:980px){
+ .hero-grid,.grid-2,.gallery{grid-template-columns:1fr}
+ .hero-media{min-height:50vh}
+ .gallery-main{min-height:auto}
+ .gallery-side{grid-template-rows:none;grid-template-columns:1fr}
+}
+@media (max-width:640px){
+ .nav-links{display:none}
+ .hero{padding-top:36px}
+ .hero-panel{position:static;min-width:0;border-right:none}
+ .project-cta-card{padding:28px}
+ .gallery-side img{min-height:220px}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="index_apple.html">Sun<span>set</span></a>
+    <nav class="nav-links">
+      <a href="index_apple.html#proyectos">Proyectos</a>
+      <a href="#detalle">Detalle</a>
+      <a href="#galeria">Galería</a>
+      <a href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Sunset%20San%20Mart%C3%ADn" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Edificio en Construcción · La Plata</div>
+        <h1 class="display">Sunset San Martín</h1>
+        <p class="lead">Un edificio donde la luz y la ventilación organizan espacios equilibrados entre lo privado y lo social. Diseño pensado para vivir con claridad, amplitud y conexión con el entorno.</p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Sunset%20San%20Mart%C3%ADn" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+          <a class="btn" href="index_apple.html#proyectos">Volver al portfolio</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/sunset-san-martin/fachada.PNG" alt="Sunset San Martín">
+        <div class="hero-panel">
+          <div class="eyebrow">Ficha rápida</div>
+          <div class="meta">
+            <div><small>Estado</small><div>En construcción</div></div>
+            <div><small>Hito</small><div>2027</div></div>
+            <div><small>Superficie</small><div>1000 m² cubiertos</div></div>
+            <div><small>Tipología</small><div>Monoambiente, 1 y 2 dormitorios</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="detalle">
+    <div class="container grid-2">
+      <div class="text-block">
+        <div class="eyebrow">Descripción</div>
+        <h2 class="h2" style="margin:14px 0 18px">Proyecto con una ubicación privilegiada.</h2>
+        <p class="lead">Ubicado a metros del Parque San Martín, este exclusivo edificio de 5 plantas redefine el concepto de confort y estilo. Con una calidad constructiva de primer nivel, ofrece departamentos con amplios balcones, piscina en planta baja y un salón de usos múltiples ideal para disfrutar y compartir. Un proyecto pensado en cada detalle, para que vivas con la elegancia y comodidad que merecés.</p>
+      </div>
+      <div class="specs">
+        <div class="spec"><small>Ubicación</small><div>La Plata 51 entre 22 y 23</div></div>
+        <div class="spec"><small>Unidades</small><div>Monoambientes · 1 dormitorio · 2 dormitorios</div></div>
+        <div class="spec"><small>Superficie</small><div>1000 m² cubiertos</div></div>
+        <div class="spec"><small>Estado</small><div>En construcción</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="galeria">
+    <div class="container">
+      <div class="eyebrow">Galería</div>
+      <div class="gallery">
+        <div class="gallery-main">
+          <img src="assets/sunset-san-martin/piscina.jpeg" alt="Sunset San Martín imagen principal">
+        </div>
+        <div class="gallery-side">
+          <img src="assets/sunset-san-martin/interior2.jpeg" alt="Sunset San Martín imagen 2">
+          <img src="assets/sunset-san-martin/monoambiente.PNG" alt="Sunset San Martín imagen 3">
+          <img src="assets/sunset-san-martin/SUM.PNG" alt="Sunset San Martín imagen 4">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-cta">
+    <div class="container">
+      <div class="project-cta-card">
+        <div class="eyebrow">Proyecto</div>
+        <h2>Arquitectura pensada para habitar mejor.</h2>
+        <p>
+          Un edificio donde la luz, la ventilación y la cercanía al parque construyen una experiencia de vida contemporánea, luminosa y equilibrada.
+        </p>
+
+        <div class="project-cta-actions">
+          <a
+            class="btn btn-dark"
+            href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Sunset%20San%20Mart%C3%ADn"
+            target="_blank"
+            rel="noopener"
+          >
+            Pedir información
+          </a>
+
+          <a
+            class="btn btn-outline"
+            href="assets/proyectos/sunset-san-martin/Folleto sunset san martin.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            Descargar PDF
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="logo">Sun<span>set</span></div>
+      <div class="footer-note">Sunset San Martín · Edificio en construcción · La Plata</div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn" href="index_apple.html#proyectos">Volver</a>
+      <a class="btn btn-dark" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Sunset%20San%20Mart%C3%ADn" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Sunset%20San%20Mart%C3%ADn" target="_blank" rel="noopener" aria-label="WhatsApp">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+</body>
+</html>
