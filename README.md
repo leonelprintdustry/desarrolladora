@@ -6,12 +6,74 @@ Luego hago un " ls enter " para ver los archivos que hay ahi adentro deberia ver
 
 PASO 2 Comitear los cambios que haga aca 
 
-git init
+# 🚀 Comandos básicos Git (Sunset Proyecto)
+
+## 📌 Ver estado del proyecto
+
+Muestra los archivos modificados o nuevos:
+
+```
+git status
+```
+
+---
+
+## 📌 Agregar cambios
+
+Agrega todos los archivos modificados:
+
+```
 git add .
-git commit -m "Primera version landing Sunset"
-git branch -M main
-git remote add origin https://github.com/leonelprintdustry/desarrolladora.git
-git push -u origin main
+```
+
+---
+
+## 📌 Crear commit
+
+Guarda los cambios con un mensaje:
+
+```
+git commit -m "Descripción de los cambios"
+```
+
+---
+
+## 📌 Subir a GitHub
+
+Envía los cambios al repositorio:
+
+```
+git push
+```
+
+---
+
+## ⚡ Flujo rápido (todo en un comando)
+
+```
+git add . && git commit -m "Update proyecto" && git push
+```
+
+---
+
+## 💡 Tips útiles
+
+* Siempre hacé `git status` antes de subir cambios
+* Usá mensajes claros en los commits
+* Si no hacés `git push`, los cambios no se ven en GitHub
+
+---
+
+## 🧠 Flujo recomendado
+
+1. Modificar archivos
+2. `git status`
+3. `git add .`
+4. `git commit -m "mensaje"`
+5. `git push`
+
+---
+
 
 
 
