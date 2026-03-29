@@ -4,102 +4,155 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sunset — Arquitectura y desarrollos</title>
-<meta name="description" content="Sunset. Arquitectura y desarrollos con estética minimalista. Casas, edificios y proyectos en distintas etapas.">
+<meta name="description" content="Sunset. Arquitectura y desarrollos con estética minimalista. Casas, edificios y proyectos en La Plata, City Bell y Zona Norte GBA.">
 <style>
 :root{
-  --bg:#e6e3de;
-  --surface:#dcd8d1;
-  --line:#b7b2aa;
-  --text:#111111;
-  --muted:#5f5b55;
-  --soft:#d4d0c8;
-  --accent:#7b7266;
-  --dark:#151515;
-  --max:1240px;
+  --bg:#e6e3de;--surface:#dcd8d1;--line:#b7b2aa;
+  --text:#111111;--muted:#5f5b55;--soft:#d4d0c8;
+  --accent:#7b7266;--dark:#151515;--max:1240px;
 }
-*{margin:0;padding:0;box-sizing:border-box;border-radius:0 !important}
+*{margin:0;padding:0;box-sizing:border-box;border-radius:0!important}
 html{scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%}
+img{display:block;width:100%;height:100%;object-fit:cover}
 .container{width:min(var(--max),92vw);margin:0 auto}
 .eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 .display{font-family:"SF Pro Display",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;font-size:clamp(2.4rem,4.8vw,5.1rem);font-weight:500;line-height:.96;letter-spacing:-.04em}
 .h2{font-size:clamp(1.7rem,3.3vw,3rem);font-weight:500;line-height:1.02;letter-spacing:-.04em}
 .lead{font-size:.98rem;line-height:1.7;color:var(--muted)}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border:1px solid var(--text);font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;transition:.25s;background:transparent}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border:1px solid var(--text);font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;transition:.25s;background:transparent;cursor:pointer;font-family:inherit}
 .btn:hover{background:var(--text);color:#fff}
 .btn-dark{background:var(--text);color:#fff}
 .btn-dark:hover{background:#000}
-.nav{position:sticky;top:0;z-index:50;background:rgba(245,245,242,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,0,0,.06)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:70px;gap:20px}
+.btn-sm{padding:9px 16px;font-size:.68rem}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(230,227,222,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:20px}
 .logo{font-size:.95rem;letter-spacing:.34em;text-transform:uppercase;font-weight:600}
 .logo span{color:var(--accent)}
 .nav-links{display:flex;gap:28px;flex-wrap:wrap}
-.nav-links a{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.nav-links a{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:100%;height:1px;background:var(--text);transition:right .28s}
 .nav-links a:hover{color:var(--text)}
-.hero{padding:48px 0 20px}
+.nav-links a:hover::after{right:0}
+
+/* HERO */
+.hero{padding:48px 0 0}
 .hero-grid{display:grid;grid-template-columns:1fr .9fr;gap:24px;align-items:start}
 .hero-copy{padding:16px 0 0}
-.hero-copy .lead{max-width:620px;margin-top:22px}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.hero-copy .eyebrow{margin-bottom:18px}
+.hero-copy .display{margin-bottom:20px}
+.hero-copy .lead{max-width:560px;margin-bottom:28px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 .hero-media{min-height:58vh;background:var(--soft);border:1px solid var(--line);position:relative;overflow:hidden}
-.hero-media img{width:100%;height:100%;object-fit:cover;filter:contrast(1.02) saturate(.92)}
-.hero-caption{padding:14px 2px 0;border-top:1px solid var(--line);margin-top:12px}
-.hero-caption .eyebrow{margin-bottom:8px}
-.hero-caption p{font-size:.88rem;line-height:1.6;color:var(--muted);max-width:520px}
+.hero-media img{width:100%;height:100%;object-fit:cover;filter:contrast(1.02) saturate(.88);transition:transform 9s ease}
+.hero-media:hover img{transform:scale(1.04)}
+.hero-media-label{position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 100%);color:rgba(255,255,255,.65);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase}
+
+/* METRICS BAR */
+.metrics-bar{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:40px}
+.metric{padding:22px 24px;border-right:1px solid var(--line)}
+.metric:last-child{border-right:none}
+.metric strong{font-size:clamp(2rem,4vw,3rem);font-weight:500;letter-spacing:-.05em;display:block;line-height:1;margin-bottom:4px}
+.metric span{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+/* MARQUEE */
+.marquee-wrap{padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.marquee-track{display:flex;gap:3rem;white-space:nowrap;animation:marquee 26s linear infinite}
+.marquee-track span{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);flex-shrink:0}
+.marquee-track span b{color:var(--text);font-weight:500}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
 .section{padding:64px 0;border-top:1px solid var(--line)}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:var(--surface);border:1px solid var(--line)}
-.card-pad{padding:26px}
-.metric{padding:20px 22px;border-top:1px solid var(--line)}
-.metric strong{display:block;font-size:1.55rem;font-weight:500;letter-spacing:-.05em}
-.metric span{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
-.project-card{background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column}
-.project-card .thumb{aspect-ratio:4/3;overflow:hidden;background:var(--soft)}
-.project-card img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
-.project-card:hover img{transform:scale(1.03)}
-.project-card .body{padding:18px;border-top:1px solid var(--line)}
-.project-card h3{font-size:1.22rem;font-weight:500;letter-spacing:-.03em}
-.project-card p{color:var(--muted);line-height:1.6;margin:8px 0 14px;font-size:.92rem}
-.kicker{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
-.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:22px}
-.spec{background:var(--surface);padding:20px}
-.spec small{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.spec div{font-size:1.02rem;line-height:1.5}
-.gallery{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:28px}
-.gallery img{width:100%;height:100%;object-fit:cover;border:1px solid var(--line);background:var(--soft);min-height:280px}
-.text-block{padding:28px;background:var(--surface);border:1px solid var(--line)}
-.list{display:grid;gap:14px;margin-top:18px}
-.list li{list-style:none;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);line-height:1.7}
-.footer{padding:32px 0 72px;border-top:1px solid var(--line)}
+
+/* PROJ HEADER */
+.proj-header{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:end;margin-bottom:28px}
+
+/* PROJ GRID */
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.project-card{background:var(--bg);display:flex;flex-direction:column;transition:background .2s}
+.project-card:hover{background:var(--surface)}
+.thumb{height:320px;overflow:hidden;position:relative}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;display:block}
+.project-card:hover .thumb img{transform:scale(1.04)}
+
+/* STATUS BADGES */
+.badge{position:absolute;top:12px;left:12px;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px}
+.badge-done{background:rgba(21,21,21,.65);color:rgba(255,255,255,.75)}
+.badge-obra{background:rgba(123,114,102,.88);color:#fff}
+.badge-pozo{background:rgba(230,227,222,.92);color:var(--text)}
+
+.body{padding:20px;border-top:1px solid var(--line);flex:1;display:flex;flex-direction:column}
+.kicker{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.body h3{font-size:1.25rem;font-weight:500;letter-spacing:-.03em;margin-bottom:6px}
+.body p{color:var(--muted);line-height:1.65;font-size:.9rem;flex:1;margin-bottom:16px}
+.card-foot{display:flex;gap:10px;flex-wrap:wrap;padding-top:16px;border-top:1px solid var(--line)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.about-img{aspect-ratio:1;overflow:hidden;background:var(--soft)}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-copy{padding:3rem;display:flex;flex-direction:column;justify-content:space-between;background:var(--bg)}
+.about-copy .eyebrow{margin-bottom:14px}
+.about-copy .h2{margin-bottom:18px}
+.about-vals{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line);margin-top:2rem}
+.aval{background:var(--bg);padding:20px 22px}
+.aval strong{font-size:2rem;font-weight:500;letter-spacing:-.05em;display:block;line-height:1;margin-bottom:4px}
+.aval span{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* CRITERIO */
+.crit-header{display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:start;margin-bottom:0}
+.crit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.crit-item{background:var(--bg);padding:28px 22px}
+.crit-num{font-size:.72rem;letter-spacing:.2em;color:var(--muted);margin-bottom:14px}
+.crit-title{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.crit-desc{font-size:.84rem;line-height:1.7;color:var(--muted)}
+
+/* FOOTER */
+.footer{padding:32px 0 80px;border-top:1px solid var(--line)}
 .footer-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
-.footer-note{color:var(--muted);font-size:.88rem}
-.fab{position:fixed;right:24px;bottom:24px;width:54px;height:54px;background:#25D366;border:1px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(0,0,0,.12);z-index:60}
-.fab svg{width:28px;height:28px;fill:#fff}
-.muted{color:var(--muted)}
-.mono{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-@media (max-width:980px){
- .hero-grid,.grid-2,.gallery,.project-grid{grid-template-columns:1fr}
- .grid-3{grid-template-columns:1fr 1fr}
- .hero-media{min-height:42vh}
+.footer-note{color:var(--muted);font-size:.86rem;margin-top:4px}
+
+/* FAB */
+.fab{position:fixed;right:24px;bottom:24px;width:52px;height:52px;background:#25D366;border:1px solid rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.14);z-index:60;transition:transform .22s,box-shadow .22s;animation:fabpulse 3s ease-in-out infinite}
+.fab:hover{transform:scale(1.08);box-shadow:0 12px 32px rgba(37,211,102,.4);animation:none}
+.fab svg{width:26px;height:26px;fill:#fff}
+.fab-tip{position:absolute;right:62px;background:var(--dark);color:#fff;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;padding:7px 12px;opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s;pointer-events:none}
+.fab:hover .fab-tip{opacity:1;transform:translateX(0)}
+@keyframes fabpulse{0%,100%{box-shadow:0 8px 24px rgba(0,0,0,.14)}50%{box-shadow:0 8px 28px rgba(37,211,102,.45)}}
+
+/* RESPONSIVE */
+@media(max-width:980px){
+  .hero-grid,.about-grid,.proj-header{grid-template-columns:1fr}
+  .hero-media{min-height:44vh}
+  .metrics-bar{grid-template-columns:repeat(3,1fr)}
+  .crit-header{grid-template-columns:1fr}
+  .crit-grid{grid-template-columns:repeat(2,1fr)}
 }
-@media (max-width:640px){
- .nav-links{display:none}
- .grid-3{grid-template-columns:1fr}
- .hero{padding-top:36px}
- }
+@media(max-width:640px){
+  .nav-links{display:none}
+  .project-grid{grid-template-columns:1fr}
+  .metrics-bar{grid-template-columns:1fr}
+  .metric{border-right:none;border-bottom:1px solid var(--line)}
+  .metric:last-child{border-bottom:none}
+  .crit-grid{grid-template-columns:1fr}
+  .about-copy{padding:2rem}
+  .about-vals{grid-template-columns:1fr 1fr}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
 </style>
 </head>
 <body>
+
 <header class="nav">
   <div class="container nav-inner">
     <a class="logo" href="index.html">Sun<span>set</span></a>
     <nav class="nav-links">
       <a href="#proyectos">Proyectos</a>
-      <a href="#estudio">Estudio</a>
+      <a href="#nosotros">Estudio</a>
       <a href="#criterio">Criterio</a>
       <a href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20recibir%20informaci%C3%B3n%20sobre%20sus%20proyectos" target="_blank" rel="noopener">WhatsApp</a>
     </nav>
@@ -107,230 +160,294 @@ img{display:block;max-width:100%}
 </header>
 
 <main>
-  <section class="hero container">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow">Sunset · arquitectura y desarrollos</div>
-        <h1 class="display">Arquitectura serena,<br>valor bien construido.</h1>
-        <p class="lead">Casas terminadas, edificios en obra y desarrollos con una mirada sobria. Proyectos pensados para habitar, invertir y sostener valor en el tiempo.</p>
-        <div class="hero-actions">
-          <a class="btn btn-dark" href="#proyectos">Ver proyectos</a>
-          <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20recibir%20informaci%C3%B3n%20sobre%20sus%20proyectos" target="_blank" rel="noopener">Hablar por WhatsApp</a>
-        </div>
-      </div>
-      <div class="hero-media">
-        <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1600&q=80" alt="Arquitectura residencial contemporánea">
-      </div>
-    </div>
-    <div class="hero-caption">
-      <div class="eyebrow">La Plata · City Bell · Zona Norte</div>
-      <p>Portfolio de casas, edificios y desarrollos residenciales en distintas etapas. Una presentación más silenciosa, con foco en el proyecto y no en el artificio.</p>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="container grid-3">
-      <div class="card"><div class="metric"><strong>10</strong><span>Páginas de proyecto</span></div></div>
-      <div class="card"><div class="metric"><strong>3</strong><span>Estados de avance</span></div></div>
-      <div class="card"><div class="metric"><strong>1</strong><span>Sistema visual coherente</span></div></div>
-    </div>
-  </section>
-
-  <section class="section" id="proyectos">
-    <div class="container">
-      <div class="grid-2" style="align-items:end;gap:36px">
-        <div>
-          <div class="eyebrow">Proyectos</div>
-          <h2 class="h2" style="margin-top:14px">Una base clara para ordenar tu portfolio.</h2>
-        </div>
-        <p class="lead">Cada proyecto tiene su propia página para que después cargues ubicación, memoria descriptiva, m², precios, renders, avance de obra o brochure sin mezclar todo en una sola landing.</p>
+<!-- HERO -->
+<section class="hero container">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">Sunset · Argentina · España</div>
+      <h1 class="display">Arquitectura serena,<br>valor bien construido.</h1>
+      <p class="lead">Casas terminadas, edificios en obra y desarrollos pensados para habitar, invertir y sostener valor en el tiempo. Una mirada sobria y de largo plazo.</p>
+      <div class="hero-actions">
+        <a class="btn btn-dark" href="#proyectos">Ver proyectos</a>
+        <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20recibir%20informaci%C3%B3n%20sobre%20sus%20proyectos" target="_blank" rel="noopener">Hablar por WhatsApp</a>
       </div>
-      <div class="project-grid">
-        
+    </div>
+    <div class="hero-media">
+      <img src="assets/img/header.jpeg" alt="Arquitectura residencial contemporánea Sunset">
+      <div class="hero-media-label">Nuestra huella</div>
+    </div>
+  </div>
+
+  <div class="metrics-bar">
+    <div class="metric"><strong>15</strong><span>Años construyendo</span></div>
+    <div class="metric"><strong>40+</strong><span>Proyectos entregados</span></div>
+    <div class="metric"><strong>10</strong><span>Desarrollos activos</span></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Arquitectura con criterio&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+    <span><b>Argentina · España</b>&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+    <span>Casas · Edificios · Desarrollos&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+    <span>Invertí en lo que <b>dura</b>&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+    <span>Arquitectura con criterio&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+    <span><b>Argentina · España</b>&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+    <span>Casas · Edificios · Desarrollos&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+    <span>Invertí en lo que <b>dura</b>&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<!-- PROYECTOS -->
+
+<section class="section" id="proyectos">
+  <div class="container">
+    <div class="proj-header">
+      <div>
+        <div class="eyebrow">Portfolio</div>
+        <h2 class="h2" style="margin-top:12px">Cada proyecto,<br>su propia historia.</h2>
+      </div>
+      <p class="lead">Casas terminadas, edificios en obra y desarrollos en distintas etapas. Hacé clic en cualquier proyecto para ver ubicación, materiales, planos y contacto directo.</p>
+    </div>
+
+    <!-- EN OBRA -->
+    <div class="eyebrow" style="margin:20px 0 10px">En obra</div>
+    <div class="project-grid">
+
+      <!-- Bell -->
       <article class="project-card">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=80" alt="Casa Lagoon"></div>
+        <div class="thumb">
+          <img src="assets/sunset-bell/home.jpeg" alt="Sunset Bell">
+          <span class="badge badge-done">En obra</span>
+        </div>
         <div class="body">
-          <div class="kicker">Casa terminada · City Bell</div>
-          <h3>Casa Lagoon</h3>
+          <div class="kicker">Edificio · City Bell · 2027</div>
+          <h3>Sunset Bell</h3>
           <p>Residencia contemporánea pensada para vida familiar, con líneas puras, expansión al jardín y materiales nobles.</p>
-          <div class="mono">Entregado · 2025</div>
-          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn" href="casa-lagoon.html">Ver proyecto</a>
-            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Casa%20Lagoon">WhatsApp</a>
+          <div class="card-foot">
+            <a class="btn btn-sm btn-dark" href="sunset-bell.html">Ver proyecto</a>
+            <a class="btn btn-sm" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Sunset%20Bell" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
       </article>
+
+      <!-- San Martin -->
       <article class="project-card">
-        <div class="thumb"><img src="assets/sunset-san-martin/piscina.jpeg" alt="Casa Patio"></div>
+        <div class="thumb">
+          <img src="assets/sunset-san-martin/home.jpeg" alt="Sunset San Martín">
+          <span class="badge badge-obra">En obra</span>
+        </div>
         <div class="body">
-          <div class="kicker">Edificio en construcción · AV 51 22 y 23 · La Plata</div>
+          <div class="kicker">Edificio · Av. 51 e/ 22 y 23 · La Plata · 2027</div>
           <h3>Sunset San Martín</h3>
-          <p>Un edificio donde la luz y la ventilación organizan espacios equilibrados entre lo privado y lo social. Diseño pensado para vivir con claridad, amplitud y conexión con el entorno.</p>
-          <div class="mono">En construcción · 2027</div>
-          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn" href="sunset-san-martin.html">Ver proyecto</a>
-            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Casa%20Patio">WhatsApp</a>
+          <p>Un edificio donde la luz y la ventilación organizan espacios equilibrados entre lo privado y lo social. Diseño pensado para vivir con claridad y amplitud.</p>
+          <div class="card-foot">
+            <a class="btn btn-sm btn-dark" href="sunset-san-martin.html">Ver proyecto</a>
+            <a class="btn btn-sm" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Sunset%20San%20Mart%C3%ADn" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
       </article>
+
+      <!-- Edificio Centro -->
       <article class="project-card">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&q=80" alt="Edificio Parque"></div>
-        <div class="body">
-          <div class="kicker">Edificio · City Bell</div>
-          <h3>Edificio Parque</h3>
-          <p>Proyecto residencial con fuerte presencia urbana, amenities sobrios y una búsqueda clara de permanencia.</p>
-          <div class="mono">En pozo · Entrega 2027</div>
-          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn" href="edificio-parque.html">Ver proyecto</a>
-            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Edificio%20Parque">WhatsApp</a>
-          </div>
+        <div class="thumb">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80" alt="Edificio Centro">
+          <span class="badge badge-obra">En obra</span>
         </div>
-      </article>
-      <article class="project-card">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80" alt="Edificio Centro"></div>
         <div class="body">
-          <div class="kicker">Edificio · La Plata</div>
+          <div class="kicker">Dúplex · Gonnet · Entrega 2028</div>
           <h3>Edificio Centro</h3>
           <p>Diseñado para un mercado urbano activo, combina ubicación estratégica, flexibilidad y diseño simple.</p>
-          <div class="mono">En construcción · Entrega 2026</div>
-          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn" href="edificio-centro.html">Ver proyecto</a>
-            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Edificio%20Centro">WhatsApp</a>
+          <div class="card-foot">
+            <a class="btn btn-sm btn-dark" href="edificio-centro.html">Ver proyecto</a>
+            <a class="btn btn-sm" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Edificio%20Centro" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
       </article>
+
+      <!-- Casa Bosque -->
       <article class="project-card">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1600&q=80" alt="Torre Norte"></div>
-        <div class="body">
-          <div class="kicker">Edificio · Zona Norte GBA</div>
-          <h3>Torre Norte</h3>
-          <p>Una torre limpia y elegante, con foco en proporción, fachada sobria y valor patrimonial de largo plazo.</p>
-          <div class="mono">Entregado · 2023</div>
-          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn" href="torre-norte.html">Ver proyecto</a>
-            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Torre%20Norte">WhatsApp</a>
-          </div>
+        <div class="thumb">
+          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80" alt="Casa Bosque">
+          <span class="badge badge-obra">En obra</span>
         </div>
-      </article>
-      <article class="project-card">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1600&q=80" alt="Casa Bosque"></div>
         <div class="body">
-          <div class="kicker">Casa en construcción · Gonnet</div>
+          <div class="kicker">Casa · Gonnet · Entrega 2026</div>
           <h3>Casa Bosque</h3>
           <p>Arquitectura abierta al paisaje, con grandes planos vidriados y una relación directa con el verde.</p>
-          <div class="mono">En construcción · Entrega 2026</div>
-          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn" href="casa-bosque.html">Ver proyecto</a>
-            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Casa%20Bosque">WhatsApp</a>
+          <div class="card-foot">
+            <a class="btn btn-sm btn-dark" href="casa-bosque.html">Ver proyecto</a>
+            <a class="btn btn-sm" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Casa%20Bosque" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
       </article>
+
+      <!-- Estudios Urban -->
       <article class="project-card">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1600&q=80" alt="Casa Terraza"></div>
-        <div class="body">
-          <div class="kicker">Casa terminada · Villa Elisa</div>
-          <h3>Casa Terraza</h3>
-          <p>Una vivienda compacta y luminosa, pensada para maximizar espacio, privacidad y disfrute exterior.</p>
-          <div class="mono">Entregado · 2022</div>
-          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn" href="casa-terraza.html">Ver proyecto</a>
-            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Casa%20Terraza">WhatsApp</a>
-          </div>
+        <div class="thumb">
+          <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=1200&q=80" alt="Estudios Urban">
+          <span class="badge badge-obra">En obra</span>
         </div>
-      </article>
-      <article class="project-card">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=1600&q=80" alt="Residencias Oeste"></div>
         <div class="body">
-          <div class="kicker">Conjunto residencial · La Plata</div>
-          <h3>Residencias Oeste</h3>
-          <p>Conjunto de unidades con lenguaje contemporáneo, patios privados y circulación clara.</p>
-          <div class="mono">En pozo · Lanzamiento 2026</div>
-          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn" href="residencias-oeste.html">Ver proyecto</a>
-            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Residencias%20Oeste">WhatsApp</a>
-          </div>
-        </div>
-      </article>
-      <article class="project-card">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=1600&q=80" alt="Estudios Urban"></div>
-        <div class="body">
-          <div class="kicker">Edificio · La Plata Centro</div>
+          <div class="kicker">Edificio · La Plata Centro · Entrega 2026</div>
           <h3>Estudios Urban</h3>
           <p>Producto pensado para renta, con mantenimiento simple, diseño sobrio y buena escala de inversión.</p>
-          <div class="mono">En construcción · Entrega 2026</div>
-          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn" href="estudios-urban.html">Ver proyecto</a>
-            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Estudios%20Urban">WhatsApp</a>
+          <div class="card-foot">
+            <a class="btn btn-sm btn-dark" href="estudios-urban.html">Ver proyecto</a>
+            <a class="btn btn-sm" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Estudios%20Urban" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
       </article>
+
+    </div>
+
+    <!-- PROYECTOS / POZO -->
+    <div class="eyebrow" style="margin:40px 0 10px">Proyectos / Pozo</div>
+    <div class="project-grid">
+
+      <!-- 508 -->
       <article class="project-card">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80" alt="Houses Sunset"></div>
+        <div class="thumb">
+          <img src="assets/sunset-508/home.jpeg" alt="Sunset 508">
+          <span class="badge badge-pozo">En obra</span>
+        </div>
         <div class="body">
-          <div class="kicker">Casas + lotes · Zona Norte</div>
-          <h3>Houses Sunset</h3>
-          <p>Un desarrollo de escala más abierta, orientado a calidad de vida, verde y construcción contemporánea.</p>
-          <div class="mono">Próximo lanzamiento · 2026</div>
-          <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-            <a class="btn" href="houses-sunset.html">Ver proyecto</a>
-            <a class="btn" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Houses%20Sunset">WhatsApp</a>
+          <div class="kicker">Dúplex · Gonnet · Entrega 2028</div>
+          <h3>Sunset 508</h3>
+          <p>Proyecto residencial con fuerte presencia urbana, muy cercano a la ciudad de La Plata.</p>
+          <div class="card-foot">
+            <a class="btn btn-sm btn-dark" href="sunset-508.html">Ver proyecto</a>
+            <a class="btn btn-sm" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Sunset%20508" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
       </article>
+
+      <!-- Houses -->
+      <article class="project-card">
+        <div class="thumb">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" alt="Houses Sunset">
+          <span class="badge badge-pozo">Próximo lanzamiento</span>
+        </div>
+        <div class="body">
+          <div class="kicker">Casas + lotes · Zona Norte · 2026</div>
+          <h3>Houses Sunset</h3>
+          <p>Un desarrollo de escala abierta, orientado a calidad de vida, verde y construcción contemporánea.</p>
+          <div class="card-foot">
+            <a class="btn btn-sm btn-dark" href="houses-sunset.html">Ver proyecto</a>
+            <a class="btn btn-sm" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Houses%20Sunset" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- TERMINADOS -->
+    <div class="eyebrow" style="margin:40px 0 10px">Terminados</div>
+    <div class="project-grid">
+
+      <!-- Farmhouse -->
+      <article class="project-card">
+        <div class="thumb">
+          <img src="assets/farmhouse/home.jpeg" alt="Farmhouse">
+          <span class="badge badge-done">Terminado</span>
+        </div>
+        <div class="body">
+          <div class="kicker">Casa · City Bell Country Grand Bell · 2021</div>
+          <h3>Farmhouse</h3>
+          <p>Una casa única no solo por su estilo sino por su metodología constructiva.</p>
+          <div class="card-foot">
+            <a class="btn btn-sm btn-dark" href="farmhouse.html">Ver proyecto</a>
+            <a class="btn btn-sm" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20Farmhouse" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="section" id="nosotros">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="assets/img/footer.jpeg" alt="Sunset arquitectura">
+      </div>
+      <div class="about-copy">
+        <div>
+          <div class="eyebrow">Estudio</div>
+          <h2 class="h2">Menos ruido.<br>Más criterio.</h2>
+          <p class="lead" style="margin-top:16px">Somos una desarrolladora con más de 15 años construyendo en Argentina y España. Trabajamos con un lenguaje propio: sobrio, preciso y pensado para durar.</p>
+          <p class="lead" style="margin-top:10px">Nos involucramos en cada etapa — desde la elección del terreno hasta la entrega — con foco en calidad constructiva, diseño inteligente y transparencia total.</p>
+        </div>
+        <div class="about-vals">
+          <div class="aval"><strong>15</strong><span>Años de trayectoria</span></div>
+          <div class="aval"><strong>40+</strong><span>Proyectos entregados</span></div>
+          <div class="aval"><strong>100%</strong><span>Entrega en término</span></div>
+          <div class="aval"><strong>10.000 m2</strong><span>Construidos</span></div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="estudio">
-    <div class="container grid-2">
-      <div class="text-block">
-        <div class="eyebrow">Estudio</div>
-        <h2 class="h2" style="margin:14px 0 18px">Menos ruido. Más criterio.</h2>
-        <p class="lead">El diseño se apoya en grilla, aire, contraste suave y bordes rectos. La idea es que la marca se vea más cerca de una desarrolladora seria y menos de una landing genérica.</p>
-      </div>
-      <div class="text-block">
-        <div class="eyebrow">Qué podés editar</div>
-        <ul class="list">
-          <li>Título, ubicación y estado de cada desarrollo.</li>
-          <li>Imágenes reales, renders, obra y terminaciones.</li>
-          <li>Texto comercial, pricing, planes de pago y brochure.</li>
-          <li>Botón de WhatsApp con mensaje específico por proyecto.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="criterio">
-    <div class="container grid-2">
+<!-- CRITERIO -->
+<section class="section" id="criterio">
+  <div class="container">
+    <div class="crit-header">
       <div>
-        <div class="eyebrow">Lenguaje visual</div>
-        <h2 class="h2" style="margin-top:14px">Recto, claro y atemporal.</h2>
+        <div class="eyebrow">Por qué elegirnos</div>
+        <h2 class="h2" style="margin-top:12px">Un sistema claro<br>de principio a fin.</h2>
       </div>
-      <div class="specs">
-        <div class="spec"><small>Color</small><div>Neutros suaves, contraste elegante y acentos tierra.</div></div>
-        <div class="spec"><small>Forma</small><div>Bordes rectos, líneas finas, bloques limpios.</div></div>
-        <div class="spec"><small>Estructura</small><div>Mucho aire, títulos grandes, lectura rápida.</div></div>
-        <div class="spec"><small>Conversión</small><div>Sin formulario. Contacto directo por WhatsApp.</div></div>
+      <p class="lead" style="padding-top:4px">Cada proyecto que tomamos es una decisión deliberada. No crecemos por crecer. Elegimos bien dónde construir, con quiénes trabajar y cómo entregar.</p>
+    </div>
+    <div class="crit-grid">
+      <div class="crit-item">
+        <div class="crit-num">01</div>
+        <div class="crit-title">Ubicación inteligente</div>
+        <div class="crit-desc">Solo trabajamos en zonas con alto potencial de revalorización. Cada terreno pasa por un análisis de mercado antes de sumarse al portfolio.</div>
+      </div>
+      <div class="crit-item">
+        <div class="crit-num">02</div>
+        <div class="crit-title">Diseño sin exceso</div>
+        <div class="crit-desc">Bordes rectos, materiales nobles, espacios bien proporcionados. Arquitectura que no sigue modas y que envejece bien.</div>
+      </div>
+      <div class="crit-item">
+        <div class="crit-num">03</div>
+        <div class="crit-title">Financiación flexible</div>
+        <div class="crit-desc">Planes en pesos o dólares adaptados a cada inversor. Sin formularios innecesarios: hablamos directo y resolvemos rápido.</div>
+      </div>
+      <div class="crit-item">
+        <div class="crit-num">04</div>
+        <div class="crit-title">Entrega y posventa</div>
+        <div class="crit-desc">Nos comprometemos con fechas reales y te acompañamos después de la entrega. El vínculo no termina al firmar.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 </main>
 
 <footer class="footer">
   <div class="container footer-inner">
     <div>
       <div class="logo">Sun<span>set</span></div>
-      <div class="footer-note">Arquitectura, casas, edificios y proyectos en desarrollo.</div>
+      <div class="footer-note">Arquitectura · Casas · Edificios · Desarrollos&nbsp;&nbsp;·&nbsp;&nbsp;Argentina · España</div>
     </div>
     <div style="display:flex;gap:12px;flex-wrap:wrap">
       <a class="btn" href="#proyectos">Ver portfolio</a>
-      <a class="btn btn-dark" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20recibir%20informaci%C3%B3n%20sobre%20sus%20proyectos" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-dark" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20recibir%20informaci%C3%B3n%20sobre%20sus%20proyectos" target="_blank" rel="noopener">WhatsApp →</a>
     </div>
   </div>
 </footer>
 
 <a class="fab" href="https://wa.me/5491158246897?text=Hola,%20me%20interesa%20recibir%20informaci%C3%B3n%20sobre%20sus%20proyectos" target="_blank" rel="noopener" aria-label="WhatsApp">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="fab-tip">¿Hablamos?</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
+
 </body>
 </html>
