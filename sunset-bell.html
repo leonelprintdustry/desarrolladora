@@ -97,14 +97,24 @@ img{display:block;max-width:100%}
 .project-cta{
   padding:84px 0;
   border-top:1px solid var(--line);
+  background:var(--bg);
+  position:relative;
+  z-index:2;
+}
+.project-cta .container{
+  position:relative;
+  z-index:2;
 }
 .project-cta-card{
   max-width:980px;
   margin:0 auto;
   padding:42px;
-  background:var(--surface);
+  background:#ffffff;
   border:1px solid var(--line);
+  position:relative;
+  z-index:3;
 }
+
 .project-cta-card h2{
   margin:14px 0 18px;
   font-size:clamp(2rem,4vw,3.8rem);
